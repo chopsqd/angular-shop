@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 import {tap} from "rxjs";
 
 @Injectable({
@@ -31,7 +31,7 @@ export class AuthService {
     } else localStorage.clear()
   }
 
-  private get token() {
+  get token() {
     const expDate = new Date(localStorage.getItem('token-exp') ?? '')
     if(new Date >= expDate) return this.logout()
     return localStorage.getItem('token')

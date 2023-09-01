@@ -1,1 +1,44 @@
-<p>add-page works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <h2 class="text-center">Add new product</h2>
+
+  <div class="form-control">
+    <label>Type</label>
+    <select formControlName="type">
+      <option value="phone">Phone</option>
+      <option value="tablet">Tablet</option>
+      <option value="laptop">Laptop</option>
+    </select>
+    <div *ngIf="form.get('type')?.touched && form.get('type')?.invalid" class="validation">
+      <small *ngIf="form.get('type')?.errors?.required">Choose product type</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="title">Title</label>
+    <input id="title" type="text" formControlName="title">
+    <div *ngIf="form.get('title')?.touched && form.get('title')?.invalid" class="validation">
+      <small *ngIf="form.get('title')?.errors?.required">Choose product title</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label>Title</label>
+    <quill-editor formControlName="photo"/>
+  </div>
+
+  <div class="form-control">
+    <label>Information</label>
+    <quill-editor formControlName="info"/>
+  </div>
+
+  <div class="form-control">
+    <label for="price">Price</label>
+    <input id="price" type="text" formControlName="price">
+    <div *ngIf="form.get('price')?.touched && form.get('price')?.invalid" class="validation">
+      <small *ngIf="form.get('price')?.errors?.required">Choose product price</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success btn-block">Add</button>
+</form>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../common/auth.service";
+import {AuthService} from "../../client/common/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+
   form: FormGroup
   errorMessage: string
 

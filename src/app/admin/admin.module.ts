@@ -8,13 +8,15 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AuthGuard} from "../common/auth.guard";
+import {AuthGuard} from "../client/common/auth.guard";
+import {QuillModule} from "ngx-quill";
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    QuillModule.forRoot(),
     RouterModule.forChild([
       {
         path: '',
