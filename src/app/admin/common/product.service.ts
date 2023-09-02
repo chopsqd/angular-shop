@@ -21,4 +21,26 @@ export class ProductService {
         }
       }))
   }
+
+  getAll() {
+    return this.http.get(`${environment.DB_URL}/products.json`)
+      .pipe(map( (res: any) => {
+        return Object.keys(res).map(key => ({
+          ...res[key],
+          id: key,
+          date: new Date(res[key].date)
+        }))
+      }))
+  }
+
+  getOne(id: string) {
+    console.log(id)
+    return this.http.get(`${environment.DB_URL}/products/${id}.json`)
+      .pipe(map( (res: any) => {
+        return {
+          ...res,
+          date: new Date(res.date)
+        }
+      }))
+  }
 }

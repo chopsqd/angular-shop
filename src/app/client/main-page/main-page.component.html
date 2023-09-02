@@ -1,2 +1,3 @@
-<p>Main page works!</p>
-<!--<router-outlet/>-->
+<div *ngIf="products | async as productsArr" class="dashboard">
+  <app-product *ngFor="let product of productsArr" [product]="product" class="box"></app-product>
+</div>

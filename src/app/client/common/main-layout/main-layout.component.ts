@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
 
+    protected readonly navigator = navigator;
+  protected readonly location = location;
 }
