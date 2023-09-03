@@ -43,4 +43,12 @@ export class ProductService {
         }
       }))
   }
+
+  removeProduct(id: string) {
+    return this.http.delete(`${environment.DB_URL}/products/${id}.json`)
+  }
+
+  updateProduct(product: IProduct) {
+    return this.http.patch(`${environment.DB_URL}/products/${product.id}.json`, product)
+  }
 }
