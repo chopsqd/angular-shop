@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import {ProductService} from "../../../admin/common/product.service";
 
 @Component({
   selector: 'app-main-layout',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
 })
 export class MainLayoutComponent {
 
-    protected readonly navigator = navigator;
-  protected readonly location = location;
+  type: string
+
+  constructor(
+    private router: Router,
+    private ProductService: ProductService
+  ) {  }
+
+  setType(type: string) {
+    this.type = type
+
+    if(this.type !== 'cart') {
+      this.router.navigate(['/'], {
+        queryParams: {
+          type: this.type
+        }
+      })
+
+      this.ProductService.setType(this.type)
+    }
+  }
 }

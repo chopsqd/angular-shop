@@ -9,6 +9,8 @@ import {IProduct} from "./types/IProduct";
 })
 export class ProductService {
 
+  type: string
+
   constructor(private http: HttpClient) { }
 
   create(product: IProduct) {
@@ -34,7 +36,6 @@ export class ProductService {
   }
 
   getOne(id: string) {
-    console.log(id)
     return this.http.get(`${environment.DB_URL}/products/${id}.json`)
       .pipe(map( (res: any) => {
         return {
@@ -50,5 +51,9 @@ export class ProductService {
 
   updateProduct(product: IProduct) {
     return this.http.patch(`${environment.DB_URL}/products/${product.id}.json`, product)
+  }
+
+  setType(type: string) {
+    this.type = type
   }
 }

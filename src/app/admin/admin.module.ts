@@ -10,6 +10,7 @@ import { OrdersPageComponent } from './orders-page/orders-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthGuard} from "../client/common/auth.guard";
 import {QuillModule} from "ngx-quill";
+import { SearchPipe } from './common/search.pipe';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {QuillModule} from "ngx-quill";
     AddPageComponent,
     DashboardPageComponent,
     EditPageComponent,
-    OrdersPageComponent
+    OrdersPageComponent,
+    SearchPipe
   ]
 })
 

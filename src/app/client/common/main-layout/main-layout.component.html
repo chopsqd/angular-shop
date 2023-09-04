@@ -2,10 +2,10 @@
   <a [routerLink]="['/']"><h2>Angular Shop</h2></a>
 
   <ul>
-    <li routerLinkActive="active"><a href="#">Phone</a></li>
-    <li routerLinkActive="active"><a href="#">Tablet</a></li>
-    <li routerLinkActive="active"><a href="#">Laptop</a></li>
-    <li routerLinkActive="active"><a [routerLink]="['/cart']">Cart</a></li>
+    <li routerLinkActive="active"><a (click)="setType('phone')">Phone</a></li>
+    <li routerLinkActive="active"><a (click)="setType('tablet')">Tablet</a></li>
+    <li routerLinkActive="active"><a (click)="setType('laptop')">Laptop</a></li>
+    <li routerLinkActive="active"><a (click)="setType('cart')" [routerLink]="['/cart']">Cart</a></li>
   </ul>
 </nav>
 

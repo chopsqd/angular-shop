@@ -12,7 +12,7 @@ export class MainPageComponent {
 
   products: Observable<Array<IProduct>>
 
-  constructor(private ProductService: ProductService) {  }
+  constructor(public ProductService: ProductService) {  }
 
   ngOnInit() {
     this.products = this.ProductService.getAll()

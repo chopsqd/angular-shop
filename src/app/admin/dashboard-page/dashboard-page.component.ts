@@ -12,6 +12,7 @@ export class DashboardPageComponent {
 
   products: Array<IProduct> = []
   pSub: Subscription
+  productName: string
 
   constructor(private ProductService: ProductService) {}
 
