@@ -10,6 +10,7 @@ import {IProduct} from "./types/IProduct";
 export class ProductService {
 
   type: string
+  cartProducts: Array<IProduct> = []
 
   constructor(private http: HttpClient) { }
 
@@ -55,5 +56,9 @@ export class ProductService {
 
   setType(type: string) {
     this.type = type
+  }
+
+  addProduct(product: IProduct) {
+    this.cartProducts.push(product)
   }
 }

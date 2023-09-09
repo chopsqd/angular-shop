@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {IProduct} from "../../admin/common/types/IProduct";
+import {ProductService} from "../../admin/common/product.service";
 
 @Component({
   selector: 'app-product',
@@ -9,5 +10,9 @@ import {IProduct} from "../../admin/common/types/IProduct";
 export class ProductComponent {
   @Input() product: IProduct
 
-  constructor() {  }
+  constructor(private ProductService: ProductService) {  }
+
+  addProduct(product: IProduct) {
+    this.ProductService.addProduct(product)
+  }
 }

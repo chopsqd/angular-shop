@@ -15,7 +15,7 @@
         <div>
           <h2>Price: {{productObj.price}} $</h2>
 
-          <button class="btn btn-dark" [routerLink]="['/cart']">Add to cart</button>
+          <button class="btn btn-dark" [routerLink]="['/cart']" (click)="addProduct(productObj)">Add to cart</button>
         </div>
       </div>
 

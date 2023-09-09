@@ -26,6 +26,8 @@ export class DashboardPageComponent {
   }
 
   remove(id: string) {
-
+    this.pSub = this.ProductService.removeProduct(id).subscribe(() =>
+      this.products = this.products.filter(product => product.id !== id)
+    )
   }
 }

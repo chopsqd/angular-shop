@@ -1,1 +1,40 @@
-<p>orders-page works!</p>
+<div *ngIf="orders.length; else empty">
+  <h2 class="text-center">Orders dashboard</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Phone</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Products</th>
+      <th>Price</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.date | date: "dd.MM.yyyy, h:mm"}}</td>
+      <td>{{order.phone}}</td>
+      <td>{{order.name}}</td>
+      <td>{{order.adress}}</td>
+      <td>
+        <div *ngFor="let product of order.orders">{{product.title}}</div>
+      </td>
+      <td>
+        <div class="text-center">{{order.price}}</div>
+        <div class="text-center">{{order.payment}}</div>
+      </td>
+      <td>
+        <button class="btn btn-success" (click)="remove(order.id)">Done</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #empty>
+  <p class="text-center">No orders yet...</p>
+</ng-template>

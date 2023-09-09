@@ -24,4 +24,8 @@ export class ProductPageComponent {
     }))
   }
 
+  addProduct(product: IProduct) {
+    this.ProductService.addProduct(product)
+  }
+
 }

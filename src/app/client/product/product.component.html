@@ -8,5 +8,5 @@
   <h3>Price: {{product.price}} $</h3>
 
   <button class="btn btn-primary" [routerLink]="['/product', product.id]">Open</button>
-  <button class="btn btn-success">Add to cart</button>
+  <button class="btn btn-success" (click)="addProduct(product)">Add to cart</button>
 </div>
